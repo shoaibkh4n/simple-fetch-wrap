@@ -13,7 +13,7 @@ A simple, lightweight fetch wrapper designed to simplify making HTTP requests in
 Install the package with npm:
 
 ```
-npm install simple-fetch-wrapper --save
+npm install simple-fetch-wrap
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ npm install simple-fetch-wrapper --save
 ### First, set up the global configuration for your requests in your app.tsx/jsx file or root(entry) file :
 
 ```
-import { setConfig } from 'simple-fetch-wrapper';
+import { setConfig } from 'simple-fetch-wrap';
 
 setConfig({
   token: 'auth_token_here',
@@ -33,7 +33,7 @@ setConfig({
 ### Making requests:
 
 ```
-import { fetchWrapper } from 'simple-fetch-wrapper';
+import { fetchWrapper } from 'simple-fetch-wrap';
 
 // Example GET request
 async function fetchData() {
@@ -124,7 +124,7 @@ Contributions are welcome! If you'd like to help improve the Astro Website Templ
 
 ### License
 
-Distributed under the MIT License. See [LICENCE](https://github.com/shoaibkh4n/simple-fetch-wrapper/blob/main/LICENSE) for more information.
+Distributed under the MIT License. See [LICENCE](https://github.com/shoaibkh4n/simple-fetch-wrap/blob/main/LICENSE) for more information.
 
 ### Acknowledgments
 

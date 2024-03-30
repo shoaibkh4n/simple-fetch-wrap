@@ -1,5 +1,5 @@
 {
-  "name": "simple-fetch-wrapper",
+  "name": "simple-fetch-wrap",
   "version": "1.0.0",
   "description": "A simple, lightweight fetch wrapper designed to simplify making HTTP requests in both JavaScript and TypeScript projects. It comes with built-in support for configuring global headers, base URL, and authorization tokens, making it easier to interact with REST APIs.",
   "main": "dist/index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/shoaibkh4n/simple-fetch-wrapper.git"
+    "url": "https://github.com/shoaibkh4n/simple-fetch-wrap.git"
   },
   "keywords": [
     "fetch",
@@ -35,9 +35,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shoaibkh4n/simple-fetch-wrapper/issues"
+    "url": "https://github.com/shoaibkh4n/simple-fetch-wrap/issues"
   },
-  "homepage": "https://github.com/shoaibkh4n/simple-fetch-wrapper#readme",
+  "homepage": "https://github.com/shoaibkh4n/simple-fetch-wrap#readme",
   "devDependencies": {
     "@types/node": "^20.11.30",
     "typescript": "^5.4.3"
