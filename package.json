@@ -15,11 +15,13 @@
   },
   "keywords": [
     "fetch",
+    "typescript",
     "http",
     "api",
     "wrapper",
     "authorization",
-    "headers"
+    "headers",
+    "nodejs"
   ],
   "author": "Shoaib Khan <shoaibkhan@quazire.com>",
   "funding": "https://github.com/sponsors/shoaibkh4n",
