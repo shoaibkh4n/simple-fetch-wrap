@@ -1,0 +1,42 @@
+{
+  "name": "simple-fetch-wrapper",
+  "version": "1.0.0",
+  "description": "Simple-fetch-wrapper simplifies HTTP requests by wrapping the native fetch API, eliminating repetitive setup and offering dynamic token support for authorization, global configurations, and custom headers.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "setup": "npx tsc --init",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shoaibkh4n/simple-fetch-wrapper.git"
+  },
+  "keywords": [
+    "fetch",
+    "http",
+    "api",
+    "wrapper",
+    "authorization",
+    "headers"
+  ],
+  "author": "Shoaib Khan <shoaibkhan@quazire.com>",
+  "funding": "https://github.com/sponsors/shoaibkh4n",
+  "contributors": [
+    {
+      "name": "Shoaib Khan",
+      "email": "shoaibkhan@quazire.com",
+      "url": "https://www.npmjs.com/~shoaibkh4n"
+    }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shoaibkh4n/simple-fetch-wrapper/issues"
+  },
+  "homepage": "https://github.com/shoaibkh4n/simple-fetch-wrapper#readme",
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "typescript": "^5.4.3"
+  }
+}
