@@ -20,26 +20,26 @@ npm install simple-fetch-wrap
 
 ### First, set up the global configuration for your requests in your app.tsx/jsx file or root(entry) file :
 
-```
-import { setConfig } from 'simple-fetch-wrap';
+```js
+import { setConfig } from "simple-fetch-wrap";
 
 setConfig({
-  token: 'auth_token_here',
-  baseurl: 'https://api.example.com',
-  globalHeaders: { 'Custom-Header': 'value' },
+  token: "auth_token_here",
+  baseurl: "https://api.example.com",
+  globalHeaders: { "Custom-Header": "value" },
 });
 ```
 
 ### Making requests:
 
-```
-import { fetchWrapper } from 'simple-fetch-wrap';
+```js
+import { fetchWrapper } from "simple-fetch-wrap";
 
 // Example GET request
 async function fetchData() {
   const { data, error } = await fetchWrapper({
-    endpoint: '/data',
-    method: 'GET',
+    endpoint: "/data",
+    method: "GET",
   });
 
   if (error) {
@@ -53,9 +53,9 @@ async function fetchData() {
 // Example POST request
 async function createData() {
   const { data, error } = await fetchWrapper({
-    endpoint: '/data',
-    method: 'POST',
-    body: { key: 'value' },
+    endpoint: "/data",
+    method: "POST",
+    body: { key: "value" },
   });
 
   if (error) {
