@@ -112,11 +112,11 @@ The function returns a Promise that resolves to either the data of type `R` or a
 
 #### `ReturnMessage<R>`
 
-| Property  | Type     | Description                                        |
-| --------- | -------- | -------------------------------------------------- |
-| `error`   | `string` | Optional. Error message if the request fails.      |
-| `success` | `string` | Optional. Success message if the request succeeds. |
-| `data`    | `R`      | Optional. The response data from the request.      |
+| Property  | Type      | Description                                        |
+| --------- | --------- | -------------------------------------------------- |
+| `error`   | `string`  | Optional. Error message if the request fails.      |
+| `success` | `string`  | Optional. Success message if the request succeeds. |
+| `data`    | `Generic` | Optional. The response data from the request.      |
 
 ### Contributing
 
