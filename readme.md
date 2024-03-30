@@ -104,7 +104,7 @@ Makes an HTTP request.
 | `body` (optional)          | `Generic`                     |         | Request payload for POST, PUT requests.      |
 | `customHeaders` (optional) | `HeadersInit`                 | `{}`    | Custom headers for the specific request.     |
 
-#### `fetchWrapper(options)` returns:
+### `fetchWrapper(options)` returns:
 
 `Promise<R | ReturnMessage<R>>`
 
