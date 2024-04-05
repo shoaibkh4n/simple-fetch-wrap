@@ -5,7 +5,7 @@ A simple, lightweight fetch wrapper designed to simplify making HTTP requests in
 ## Features
 
 - Easy configuration of global headers, base URL, and authorization tokens.
-- Supports `GET`, `POST`, `PUT`, and `DELETE` HTTP methods.
+- Supports `GET`, `POST`, `PUT`, `PATCH` and `DELETE` HTTP methods.
 - TypeScript support out of the box with included type definitions.
 
 ## Installation
