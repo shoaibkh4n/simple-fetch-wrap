@@ -1,6 +1,6 @@
 {
   "name": "simple-fetch-wrap",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A simple, lightweight fetch wrapper designed to simplify making HTTP requests in both JavaScript and TypeScript projects. It comes with built-in support for configuring global headers, base URL, and authorization tokens, making it easier to interact with REST APIs.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
