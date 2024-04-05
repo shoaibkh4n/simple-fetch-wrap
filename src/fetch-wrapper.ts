@@ -2,7 +2,7 @@ import { getToken, getBaseUrl, getGlobalHeaders } from "./config";
 
 interface ApiOptions<T> {
   endpoint: string;
-  method: "GET" | "POST" | "PUT" | "DELETE";
+  method: "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
   withAuth?: boolean;
   body?: T;
   customHeaders?: HeadersInit;
@@ -56,7 +56,7 @@ async function fetchWrapper<T, R = JsonType>(
     headers,
   };
 
-  if (body && method !== "GET") {
+  if (body) {
     config.body = JSON.stringify(body);
   }
 
