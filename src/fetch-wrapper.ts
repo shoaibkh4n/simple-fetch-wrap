@@ -19,6 +19,7 @@ interface ReturnMessage<R> {
 }
 
 // Helper function to generate headers
+
 async function createHeaders(
   withAuth: boolean = false,
   customHeaders: HeadersInit = {}
