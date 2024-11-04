@@ -1,25 +1,26 @@
 import { getToken, getBaseUrl, getGlobalHeaders } from "./config";
 
-interface ApiOptions<T> {
+interface ApiOptions {
   endpoint: string;
   method: "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
   withAuth?: boolean;
-  body?: T;
+  body?: BodyInit | null;
   customHeaders?: HeadersInit;
+  isBodyFormData?: boolean;
 }
 
 interface JsonType {
   [key: string]: any;
 }
 
-interface ReturnMessage<R> {
+interface ReturnMessage<R = JsonType> {
   error?: string;
   success?: string;
   data?: R;
+  response?: Response;
 }
 
 // Helper function to generate headers
-
 async function createHeaders(
   withAuth: boolean = false,
   customHeaders: HeadersInit = {}
@@ -32,7 +33,6 @@ async function createHeaders(
 
   if (withAuth) {
     const token = getToken();
-
     if (token) {
       defaultHeaders["Authorization"] = `Bearer ${token}`;
     }
@@ -41,43 +41,59 @@ async function createHeaders(
   return { ...defaultHeaders, ...globalHeaders, ...customHeaders };
 }
 
-async function fetchWrapper<T, R = JsonType>(
-  options: ApiOptions<T>
-): Promise<R | ReturnMessage<R>> {
-  const { endpoint, method, withAuth = false, body, customHeaders } = options;
+async function fetchWrapper<T = JsonType, R = JsonType>(
+  options: ApiOptions
+): Promise<ReturnMessage<R>> {
+  const {
+    endpoint,
+    method,
+    withAuth = false,
+    body,
+    customHeaders,
+    isBodyFormData,
+  } = options;
   const baseurl = getBaseUrl();
-  if (!baseurl || baseurl.length === 0)
+  if (!baseurl || baseurl.length === 0) {
     throw new Error(
       "baseurl error: Base URL is missing or empty, ensure it is correctly configured."
     );
-  const headers = await createHeaders(withAuth, customHeaders);
+  }
+
+  const headers = (await createHeaders(withAuth, customHeaders)) as Record<
+    string,
+    string
+  >;
+
+  if (isBodyFormData) {
+    delete headers["Content-Type"];
+  }
 
   const config: RequestInit = {
     method,
     headers,
   };
 
-  if (body) {
+  if (body && !isBodyFormData) {
     config.body = JSON.stringify(body);
+  } else if (body && isBodyFormData) {
+    config.body = body;
   }
 
   try {
     const response = await fetch(`${baseurl}${endpoint}`, config);
-    // Assuming all responses are JSON. Adjust if necessary.
-
     const data = (await response.json()) as R;
+
     if (!response.ok) {
-      return { error: `Failed with status ${response.status}`, data };
+      return { error: `Failed with status ${response.status}`, data, response };
     }
 
-    return { success: "Request Successful!!", data };
+    return { success: "Request Successful!", data, response };
   } catch (error) {
-    let errorMessage = "An unknown error occurred!!";
+    let errorMessage = "An unknown error occurred!";
+    if (error instanceof Error) errorMessage = error.message;
 
     console.error("API call failed:", error);
-
-    if (error instanceof Error) errorMessage = error.message;
-    return { error: `Failed ${errorMessage}` };
+    return { error: errorMessage };
   }
 }
 
